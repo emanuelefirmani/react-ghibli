@@ -7,14 +7,16 @@ import {
 } from "react-router-dom";
 import { Routes } from 'react-router';
 import MovieListPage from './Movies/MovieListPage';
+import MoviePage from './Movies/MoviePage';
 
 function App() {
   return (
     <Router>
       <Routes>
-        <Route path="/" element={<Home/>} />
-        <Route path="/about" element={<About/>} />
-        <Route path="/movies" element={<MovieListPage/>} />
+        <Route path="/" element={<Home />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/movies" element={<MovieListPage />} />
+        <Route path="/movies/:movieId" element={<MoviePage />} />
       </Routes>
     </Router>
   );
