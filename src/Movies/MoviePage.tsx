@@ -6,16 +6,16 @@ export default function MoviePage() {
     const [movie, setData] = useState<any>([]);
 
     let params = useParams();
+    let movieId = params.movieId!;
 
     useEffect(() => {
         const fetchData = async () => {
-            setData(await GetMovie('578ae244-7750-4d9f-867b-f3cd3d6fecf4'));
+            setData(await GetMovie(movieId));
         }
 
         fetchData().catch(console.error);
     }, [])
 
-    let movieId = params.movieId;
     return (
         <div>
             The movie '{movieId}':<br />
