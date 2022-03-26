@@ -1,9 +1,10 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router";
+import { Movie } from "./Movie";
 import { GetMovie } from "./MovieService";
 
 export default function MoviePage() {
-    const [movie, setData] = useState<any>([]);
+    const [movie, setData] = useState<Movie>({id:"", title:""});
 
     let params = useParams();
     let movieId = params.movieId!;
@@ -18,7 +19,6 @@ export default function MoviePage() {
 
     return (
         <div>
-            The movie '{movieId}':<br />
             Id: {movie.id}<br />
             Title: {movie.title}
         </div>

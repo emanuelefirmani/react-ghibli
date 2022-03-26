@@ -1,8 +1,9 @@
-import { render, screen, waitFor } from '@testing-library/react';
+import { render, waitFor } from '@testing-library/react';
+import { Movie, MovieId } from './Movie';
 import MoviePage from './MoviePage';
 
 jest.mock("./MovieService", () => ({
-    GetMovie: async (movieId: string) => new Promise((resolve) => resolve({id: "some-" + movieId, title: "some title"}))
+    GetMovie: async (movieId: MovieId) => new Promise<Movie>((resolve) => resolve({id: "some-" + movieId, title: "some title"}))
 }));
 
 jest.mock('react-router', () => ({

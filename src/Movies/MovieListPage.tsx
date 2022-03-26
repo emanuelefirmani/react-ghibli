@@ -1,8 +1,9 @@
-import React, { Component, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
+import { Movies } from "./Movie";
 import { GetMovies } from "./MovieService";
 
 export default function MovieListPage() {
-    const [movies, setData] = useState<[{id: string, title: string}]>([{id:"", title:""}]);
+    const [movies, setData] = useState<Movies>([{id:"", title:""}]);
 
     useEffect(() => {
         const fetchData = async () => {
