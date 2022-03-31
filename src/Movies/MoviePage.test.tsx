@@ -15,10 +15,13 @@ jest.mock('react-router', () => ({
 }));
 
 test('renders movie', async () => {
-    const { getByText } = render(<MoviePage />);
+    const { getByText, getByTestId } = render(<MoviePage />);
 
     await waitFor(() => {
-        const content = getByText(/Id: .*some-mId.*Title: .*some title/);
-        expect(content).toBeInTheDocument();
+        const contentId = getByTestId('movie-id');
+        expect(contentId).toContainHTML('some-mId');
+
+        const contentText = getByText(/Title: .*some title/);
+        expect(contentText).toBeInTheDocument();
     });
 });

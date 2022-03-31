@@ -19,8 +19,8 @@ export default function MoviePage() {
 
     return (
         <div>
-            Id: {movie.id}<br />
-            Title: {movie.title}
+            <div data-testid='movie-id'>Id: {movie.id}</div>
+            <div>Title: {movie.title}</div>
         </div>
     );
 }
